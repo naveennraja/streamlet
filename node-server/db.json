@@ -1,0 +1,21 @@
+{
+  "streams": [
+    {
+      "title": "Dummy Stream",
+      "description": "This is Dummy Stream",
+      "id": 1
+    },
+    {
+      "title": "Sports Stream",
+      "description": "This is sports stream",
+      "userId": "103691760090258767282",
+      "id": 2
+    },
+    {
+      "title": "Politics Stream",
+      "description": "This stream is politics stream",
+      "userId": "103691760090258767282",
+      "id": 3
+    }
+  ]
+}
