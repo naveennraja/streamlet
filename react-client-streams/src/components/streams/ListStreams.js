@@ -11,8 +11,8 @@ class ListStreams extends Component {
                return(
                     <div className="extra content">
                          <div className="ui two buttons">
-                         <div className="ui  grey button">Edit</div>
-                         <div className="ui  red button">Delete</div>
+                         <Link className="ui  grey button" to={`/stream/edit/${stream.id}`}>Edit</Link>
+                         <Link className="ui  red button" to={`/stream/delete/${stream.id}`}>Delete</Link>
                          </div>
                     </div>
                )
@@ -20,10 +20,12 @@ class ListStreams extends Component {
      }
      renderCreateStream = () => {
           if(this.props.isSignedIn){
-                    return (
-                   <div className="align right">
-                        <Link  className=" ui button primary" to="/stream/create">Create Stream</Link>
-                    </div>
+                    return ( 
+                    <Link  
+                         className=" ui button primary" 
+                         to="/stream/create">
+                         Create Stream
+                    </Link>                    
                     )
           }
      }
@@ -31,7 +33,7 @@ class ListStreams extends Component {
           //console.log(this.props);
           return this.props.streams.map(stream => {
                return(
-                    <div className="card" key={stream.id}>
+                    <div className="card five wide column" key={stream.id}>
                          <div className="content">
                               <i className="right floated camera icon"></i>
                               <div className="header">{stream.title}</div>
@@ -45,11 +47,18 @@ class ListStreams extends Component {
      render() { 
           return (
                     <div>
-                         <h2>Stream List</h2>
-                         <div className="ui cards"> 
-                         {this.renderList()}
+                         <div className="ui right aligned grid">
+                              <div className="left floated left aligned eight wide column">
+                                   <h2>Stream List</h2>
+                              </div>
+                              <div className="left floated right aligned eight wide column">
+                                   {this.renderCreateStream()}
+                              </div>
                          </div>
-                         {this.renderCreateStream()}
+                         
+                         <div className="ui cards grid"> 
+                               {this.renderList()}
+                         </div>
                     </div>
                );
      }

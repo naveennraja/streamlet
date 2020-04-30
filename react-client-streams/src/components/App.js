@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route, } from "react-router-dom";
-
+import {Router, Route, } from "react-router-dom";
+import history from "../history";
 
 import CreateStream from './streams/CreateStream';
 import EditStream from './streams/EditStream';
@@ -14,16 +14,16 @@ class App extends Component {
      state = {  }
      render() { 
           return ( <div className="ui container">
-               <BrowserRouter>
+               <Router history={history}>
                <Header/>
                     <div>
                          <Route path="/" exact component={ListStreams} />
                          <Route path="/stream/create" component={CreateStream}/>
-                         <Route path="/stream/edit" component={EditStream}/>
-                         <Route path="/stream/delete" component={DeleteStream}/>
-                         <Route path="/stream/show" component={ShowStreams}/>
+                         <Route path="/stream/edit/:id" component={EditStream}/>
+                         <Route path="/stream/delete/:id" component={DeleteStream}/>
+                         <Route path="/stream/show/:id" component={ShowStreams}/>
                     </div>
-               </BrowserRouter>
+               </Router>
           </div>);
      }
 }
