@@ -6,12 +6,6 @@
       "id": 1
     },
     {
-      "title": "Football Stream",
-      "description": "This is fooball stream",
-      "id": 2,
-      "userId": "103691760090258767282"
-    },
-    {
       "title": "Sports Stream",
       "description": "This stream is Sports stream",
       "userId": "103691760090258767282",
@@ -22,12 +16,6 @@
       "description": "This is a coding channel to learn",
       "userId": "103691760090258767282",
       "id": 4
-    },
-    {
-      "title": "New Sttream",
-      "description": "ASD asds",
-      "userId": "103691760090258767282",
-      "id": 5
     }
   ]
 }

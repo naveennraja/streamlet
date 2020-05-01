@@ -42,9 +42,10 @@ export const streamFetchId = id => async(dispatch) => {
 export const streamEdit = (id, formValues) => async (dispatch) => {
      const response = await stream.patch(`/streams/${id}` ,formValues);
      dispatch({type:STREAM_EDIT, payload:response.data});
-     history.push('/')
+     history.push('/');
 }
 export const streamDelete = (id) => async (dispatch) => {
      await stream.delete(`/streams/${id}`)
      dispatch({type: STREAM_DELETE , payload : id});
+     history.push('/');
 }

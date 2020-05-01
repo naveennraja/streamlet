@@ -11,7 +11,6 @@ import Header from './Header/Header';
 
 
 class App extends Component {
-     state = {  }
      render() { 
           return ( <div className="ui container">
                <Router history={history}>

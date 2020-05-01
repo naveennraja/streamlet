@@ -10,8 +10,8 @@ class ListStreams extends Component {
           if(stream.userId === this.props.currentUserId){
                return(
                     <div className="extra content">
-                         <div className="ui two buttons">
-                         <Link className="ui  grey button" to={`/stream/edit/${stream.id}`}>Edit</Link>
+                         <div className="ui actions buttons">
+                         <Link className="ui  cancel button" to={`/stream/edit/${stream.id}`}>Edit</Link>
                          <Link className="ui  red button" to={`/stream/delete/${stream.id}`}>Delete</Link>
                          </div>
                     </div>
