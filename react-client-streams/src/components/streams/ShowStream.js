@@ -1,10 +1,35 @@
 import React,{Component, Fragment} from 'react';
 import { connect } from "react-redux";
 import { streamFetchId } from '../../actions';
+import flv from "flv.js";
 
 class ShowStreams extends Component {
+     constructor(props){
+          super(props);
+          this.videoRef= React.createRef();
+     }
      componentDidMount() {
-          console.log("Here",this.props,this.props.streamFetchId(this.props.match.params.id));
+          const {id} = this.props.match.params;
+          this.props.streamFetchId(id);
+          this.buildPlayer();
+     }
+     componentDidUpdate(){
+          this.buildPlayer();
+     }
+     componentWillUnmount(){
+          this.player.destroy();
+     }
+     buildPlayer(){
+          if(this.player || !this.props.stream){
+               return;
+          }
+          const {id} = this.props.match.params;
+          this.player = flv.createPlayer({
+               type:"flv",
+               url:`http://localhost:8080/live/${id}.flv`
+          })
+          this.player.attachMediaElement(this.videoRef.current);
+          this.player.load();
      }
      render() { 
           if(!this.props.stream){
@@ -14,6 +39,7 @@ class ShowStreams extends Component {
           return (
                <Fragment>
                     <h2> {title}</h2>  
+                    <video ref={this.videoRef} controls style={{width:"100%"}}></video>
                     <p> {description}</p>  
                </Fragment>
           );
