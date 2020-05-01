@@ -36,7 +36,9 @@ class ListStreams extends Component {
                     <div className="card five wide column" key={stream.id}>
                          <div className="content">
                               <i className="right floated camera icon"></i>
-                              <div className="header">{stream.title}</div>
+                              <Link className="header" to={`/stream/${stream.id}`}>
+                                   {stream.title}
+                              </Link>
                               <div className="description">{stream.description}</div>
                          </div>
                          {this.renderOperations(stream)}
